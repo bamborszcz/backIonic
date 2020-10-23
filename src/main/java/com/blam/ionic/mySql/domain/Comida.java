@@ -1,5 +1,6 @@
 package com.blam.ionic.mySql.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.Nullable;
 import lombok.*;
 
@@ -19,15 +20,19 @@ public class Comida implements Serializable{
     @Column(nullable = false, updatable = false)
     private Long id;
 
+    @Column(name = "title")
     private String title;
 
+    @Column(name = "description")
     private String description;
 
+    @Column(name = "fotoUrl")
     private String fotoUrl;
 
+    @Column(name = "videoUrl")
     private String videoUrl;
 
     @ManyToOne()
-    @JoinTable(name = "categoria_comida")
+    @JoinColumn(name = "categoria",referencedColumnName = "categoria")
     private Categoria categoria;
 }

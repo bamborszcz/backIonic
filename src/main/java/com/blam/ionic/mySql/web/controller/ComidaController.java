@@ -25,7 +25,7 @@ public class ComidaController {
     public ResponseEntity getComidas(){
 
         List<ComidaDto> comidaDtoList = comidaServices.getAll();
-
+        System.out.println(comidaDtoList);
         return new ResponseEntity(comidaDtoList,HttpStatus.OK);
     }
 

@@ -22,9 +22,7 @@ public class Categoria implements Serializable{
     @Column(nullable = false, updatable = false)
     private Long id;
 
-    private String name;
+    @Column(name = "categoria")
+    private String categoria;
 
-
-    @OneToMany(mappedBy = "categoria", fetch = FetchType.EAGER)// trae to do lo mapeado
-    private List<Comida> comida = new ArrayList<>();
 }

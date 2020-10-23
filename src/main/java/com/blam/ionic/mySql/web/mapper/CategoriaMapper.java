@@ -3,8 +3,11 @@ package com.blam.ionic.mySql.web.mapper;
 import com.blam.ionic.mySql.domain.Categoria;
 import com.blam.ionic.mySql.web.model.CategoriaDto;
 import org.mapstruct.Mapper;
+import org.springframework.stereotype.Component;
 
-@Mapper(uses = ComidaMapper.class)
+import java.util.List;
+
+@Mapper
 public interface CategoriaMapper {
 
     CategoriaDto categoriaDtoToCategoria(Categoria categoria);

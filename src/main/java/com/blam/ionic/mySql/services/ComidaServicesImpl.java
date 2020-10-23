@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -28,31 +29,8 @@ public class ComidaServicesImpl implements ComidaServices {
 
     @Override
     public List<ComidaDto> getAll() {
-       List<Comida> comidaList = comidaRepository.findAll();
-        List<ComidaDto>comidaDtoList = new ArrayList<>();
 
-        for (Comida comida: comidaList) {
-            Categoria categoria = categoriaRepository.findById(comida.getCategoria().getId()).orElseThrow(RuntimeException::new);
-            CategoriaDto categoriaDto = categoriaMapper.categoriaDtoToCategoria(categoria);
-            ComidaDto comidaDto = comidaMapper.ComidaToComidaDto(comida);
-            comidaDto.setCategoria(categoriaDto);
-            comidaDtoList.add(comidaDto);
-        }
-
-      //return comidaRepository.findAll().stream().map(comidaMapper::comidaToComidaDto).collect(Collectors.toList()); // los busca a todos y crea la lista.
-       /* List<ComidaDto>comidaDtoList = new ArrayList<>();
-        for (Comida comida: comidaList) {
-            ComidaDto comidaDto = ComidaDto.builder().id(comida.getId())
-                    .categoria(CategoriaDto.builder().id(comida.getCategoria().getId()).build())
-                    .description(comida.getDescription())
-                    .fotoUrl(comida.getFotoUrl())
-                    .title(comida.getTitle())
-                    .videoUrl(comida.getVideoUrl()).build();
-
-            comidaDtoList.add(comidaDto);
-        }*/
-
-        return comidaDtoList;
+        return comidaRepository.findAll().stream().map(comidaMapper::ComidaToComidaDto).collect(Collectors.toList()); //
     }
 
     @Override

@@ -22,8 +22,6 @@ public class CategoriaDto implements Serializable {
     private Long id;
 
     @NotBlank
-    private String name;
-
-    private List<ComidaDto> comida = new ArrayList<>();
+    private String categoria;
 
 }
