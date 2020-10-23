@@ -6,12 +6,10 @@ import com.blam.ionic.mySql.repository.CategoriaRepository;
 import com.blam.ionic.mySql.repository.ComidaRepository;
 import com.blam.ionic.mySql.web.mapper.CategoriaMapper;
 import com.blam.ionic.mySql.web.mapper.ComidaMapper;
-import com.blam.ionic.mySql.web.model.CategoriaDto;
 import com.blam.ionic.mySql.web.model.ComidaDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
